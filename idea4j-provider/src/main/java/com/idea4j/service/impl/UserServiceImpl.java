@@ -8,6 +8,7 @@ import com.idea4j.entity.User;
 import com.idea4j.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by markee on 2017/1/3.
@@ -23,5 +24,10 @@ public class UserServiceImpl implements UserService {
         System.out.println("###############"+ RpcContext.getContext().getAttachment(DatabaseContants.DB_KEY));
         //DatabaseContextHolder.setDatabaseKey("db2");
         return userMapper.selectByPrimaryKey(id);
+    }
+
+    @Transactional
+    public void save(User user) {
+        userMapper.insert(user);
     }
 }

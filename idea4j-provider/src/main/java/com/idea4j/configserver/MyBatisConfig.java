@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
@@ -23,6 +24,7 @@ import java.util.Properties;
  * 2）创建SqlSessionFactory 3）配置事务管理器，除非需要使用事务，否则不用配置
  */
 @Configuration
+@EnableTransactionManagement
 public class MyBatisConfig implements EnvironmentAware {
 
     private Environment environment;
