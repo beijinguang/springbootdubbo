@@ -8,9 +8,8 @@
 		http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 	<!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
 	<dubbo:application name="webDubboConsumer" />
-    <!-- <dubbo:consumer timeout="100000" filter="dbfilter"/> -->
-    <dubbo:consumer timeout="100000"/>
+	<dubbo:consumer timeout="100000" filter="dataSourceKeyFilter"/>
 	<!-- 使用multicast广播注册中心暴露发现服务地址 -->
 	<dubbo:registry protocol="zookeeper" address="localhost:2181" />
-	<dubbo:reference id="userService" interface="com.idea4j.service.UserService" group="test_server"/>
+	<dubbo:reference id="userService" interface="com.idea4j.service.UserService" group="boot_server"/>
 </beans>

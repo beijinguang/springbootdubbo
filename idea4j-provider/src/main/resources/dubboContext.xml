@@ -14,5 +14,5 @@
     <!-- 使用multicast广播注册中心暴露服务地址 -->
     <dubbo:protocol name="dubbo" port="-1"  buffer="65536" />
     <dubbo:registry protocol="zookeeper" address="localhost:2181" />
-    <dubbo:service protocol="dubbo" interface="com.idea4j.service.UserService" ref="userService" group="test_server"/>
+    <dubbo:service protocol="dubbo" interface="com.idea4j.service.UserService" ref="userService" group="boot_server"/>
 </beans>
