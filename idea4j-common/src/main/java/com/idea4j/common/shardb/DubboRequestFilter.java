@@ -16,13 +16,12 @@ public class DubboRequestFilter implements Filter {
 	}
 
 	//定义分库规则 ，这里是示例，随机分配
-	public String setDatabaseKey() {
-//		String key = DatabaseContextHolder.getDatabaseKey();
-//		if (key == null) {
-//			key = RpcContext.getContext().getAttachment(DatabaseContants.DB_KEY);
-//		}
-//		return key;
-		return "db"+ (new Random().nextInt(3)+1);
+	public void setDatabaseKey() {
+		DatabaseContextHolder.setDatabaseKey("db"+(new Random().nextInt(3)+1));//
+		String key = DatabaseContextHolder.getDatabaseKey();
+		if (key != null) {
+			RpcContext.getContext().setAttachment(DatabaseContants.DB_KEY,key);
+		}
 	}
 
 
